@@ -1,13 +1,19 @@
-import GlobalStyle from './styles/global';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Header } from "./components/Header";
+import { Home } from './pages/Home';
+
+import GlobalStyle from './styles/global';
 
 function App() {
   return (
-    <>
-      <Header />
-      <GlobalStyle />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+          <GlobalStyle />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
