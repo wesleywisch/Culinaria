@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home } from './pages/Home';
+import { Header } from './components/Header';
+import { Main } from './components/Content';
 
 import GlobalStyle from './styles/global';
 
@@ -9,7 +10,8 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Header />
+          <Main />
           <GlobalStyle />
         </Route>
       </Switch>
