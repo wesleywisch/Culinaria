@@ -1,0 +1,53 @@
+{
+  "culinary": [
+    {
+      "id": 0,
+      "title": "Bolo de chocolate",
+      "ingredients": "Aqui vai a receita de chocolate",
+      "instructions": "levar ao fogo",
+      "imagem": "https://i.pinimg.com/564x/7f/87/38/7f87388e189bacddaf1b1cb856404d30.jpg"
+    },
+    {
+      "id": 1,
+      "title": "Bolo de cenoura",
+      "ingredients": "Aqui vai a receita de cenoura",
+      "instructions": "levar ao fogo",
+      "imagem": "https://i.pinimg.com/564x/7f/87/38/7f87388e189bacddaf1b1cb856404d30.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Bolo de fuba",
+      "ingredients": "Aqui vai a receita do bolo de fuba",
+      "instructions": "levar ao fogo",
+      "imagem": "https://i.pinimg.com/564x/7f/87/38/7f87388e189bacddaf1b1cb856404d30.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Bolo de cacau",
+      "ingredients": "Aqui vai a receita do bolo de cacau",
+      "instructions": "levar ao fogo",
+      "imagem": "https://i.pinimg.com/564x/7f/87/38/7f87388e189bacddaf1b1cb856404d30.jpg"
+    },
+    {
+      "title": "dasda",
+      "ingredients": "dasdad",
+      "instructions": "asdsadasd",
+      "imagem": "https://i.pinimg.com/564x/7f/87/38/7f87388e189bacddaf1b1cb856404d30.jpg",
+      "id": 4
+    },
+    {
+      "title": "Bolo de algum trem",
+      "ingredients": "dsfsadfsdb",
+      "instructions": "blkjblkfdsfsdf",
+      "imagem": "https://img.itdg.com.br/images/recipes/000/048/083/329518/329518_original.jpg",
+      "id": 5
+    },
+    {
+      "title": "dsadasdadasda",
+      "ingredients": "dsadadasd",
+      "instructions": "adasdasda",
+      "imagem": "https://img.itdg.com.br/tdg/images/recipes/000/029/124/320646/320646_original.jpg",
+      "id": 6
+    }
+  ]
+}
