@@ -124,6 +124,7 @@ export const Container = styled.main`
 }
 
 footer{
+  margin-top: 8rem;
   display: flex;
   width: 100%;
   height: 180px;

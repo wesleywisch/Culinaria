@@ -18,9 +18,13 @@ export function Main() {
   const [imagem, setImagem] = useState('');
 
   useEffect(() => {
+    getAll();
+  }, []);
+
+  function getAll() {
     api.get('/culinary')
       .then(response => setFood(response.data))
-  }, []);
+  }
 
   function openAddModal() {
     setModalAddIsOpen(true);
@@ -39,15 +43,19 @@ export function Main() {
     setModalEditIsOpen(false);
   }
 
-  async function handleSubmit(e, food) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    await api.post('/culinary', {
+    const response = await api.post('/culinary', {
       title,
       ingredients,
       instructions,
       imagem
     });
+
+    const newData = [...food];
+    newData.push(response.data);
+    setFood(newData);
 
     closeAddModal();
     setTitle('');
@@ -56,6 +64,22 @@ export function Main() {
     setImagem('');
   }
 
+  async function handleDelete(id) {
+    await api.delete(`/culinary/${id}`);
+
+    const foodsFiltered = food.filter(foods => foods.id !== id);
+
+    setFood(foodsFiltered);
+    closeEditModal();
+  }
+
+  async function handleSearch(e, search) {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:3333/products?q=${search}`);
+    const data = await response.json();
+
+    console.log(data);
+  }
 
 
   return (
@@ -66,7 +90,7 @@ export function Main() {
         </div>
 
         <section className="pesquisar">
-          <form>
+          <form onSubmit={handleSearch}>
             <button><img src="/assests/pesquisar.png" alt="Pesquisar" /></button>
             <input placeholder="Pesquisar" type="text" />
           </form>
@@ -95,13 +119,13 @@ export function Main() {
 
 
       <section className="sectionCards">
-        {food.map(food => (
-          <div key={food.id} className="card">
-            <img src={food.imagem} alt={food.title} />
-            <h3>{food.title}</h3>
+        {food.map((foods, id) => (
+          <div key={foods.id} className="card">
+            <img src={foods.imagem} alt={foods.title} />
+            <h3>{foods.title}</h3>
             <hr />
             <div>
-              <button onClick={() => openEditModal(food)} className="receita">Abrir receita</button>
+              <button onClick={() => openEditModal(foods)} className="receita">Abrir receita</button>
             </div>
           </div>
         ))}
@@ -113,8 +137,23 @@ export function Main() {
           onRequestClose={closeEditModal}
         >
           <div className="card">
-            <img src={item.image} alt={item.title} />
-            <h3>{item.title}</h3>
+            <div>
+              <h3>{item.title}</h3>
+              <img onClick={closeEditModal} src="" alt="Fechar" />
+            </div>
+
+            <div>
+              <textarea>{item.ingredients}</textarea>
+              <img src={item.imagem} alt={item.title} />
+            </div>
+
+            <div>
+              <textarea>{item.instructions}</textarea>
+            </div>
+
+            <div>
+              <button onClick={() => handleDelete(item.id)}>Delete</button>
+            </div>
           </div>
         </Modal>
       )}
