@@ -8,6 +8,7 @@ import { Container } from './styles';
 export function Main() {
   const [food, setFood] = useState([]);
   const [item, setItem] = useState({});
+  const [search, setSearch] = useState('');
 
   const [ModalAddIsOpen, setModalAddIsOpen] = useState(false);
   const [ModalEditIsOpen, setModalEditIsOpen] = useState(false);
@@ -74,11 +75,13 @@ export function Main() {
   }
 
   async function handleSearch(e, search) {
+
+    console.log(search)
     e.preventDefault();
     const response = await fetch(`http://localhost:3333/products?q=${search}`);
-    const data = await response.json();
+    // const data = await response.json();
 
-    console.log(data);
+    console.log(response);
   }
 
 
@@ -90,9 +93,9 @@ export function Main() {
         </div>
 
         <section className="pesquisar">
-          <form onSubmit={handleSearch}>
+          <form onSubmit={() => handleSearch(search)}>
             <button><img src="/assests/pesquisar.png" alt="Pesquisar" /></button>
-            <input placeholder="Pesquisar" type="text" />
+            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Pesquisar" type="text" />
           </form>
 
 
