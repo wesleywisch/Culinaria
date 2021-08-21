@@ -74,14 +74,16 @@ export function Main() {
     closeEditModal();
   }
 
-  async function handleSearch(e, search) {
+  async function handleSearch(search) {
 
-    console.log(search)
-    e.preventDefault();
-    const response = await fetch(`http://localhost:3333/products?q=${search}`);
-    // const data = await response.json();
+    if (!search.trim()) {
+      getAll();
+    }
 
-    console.log(response);
+    const response = await fetch(`http://localhost:3333/culinary?q=${search}`);
+    const data = await response.json();
+
+    setFood(data);
   }
 
 
@@ -93,10 +95,10 @@ export function Main() {
         </div>
 
         <section className="pesquisar">
-          <form onSubmit={() => handleSearch(search)}>
+          <div className="search" onClick={() => handleSearch(search)}>
             <button><img src="/assests/pesquisar.png" alt="Pesquisar" /></button>
             <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Pesquisar" type="text" />
-          </form>
+          </div>
 
 
           <div className="add">

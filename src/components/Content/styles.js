@@ -23,7 +23,7 @@ export const Container = styled.main`
     justify-content: space-between;
     margin: 4rem 2rem;
 
-    form{
+    .search{
       display: flex;
       padding: 0.4rem 1rem;
       max-width: 680px;
@@ -146,7 +146,7 @@ footer{
 @media screen and (max-width: 1550px){
   .group{
   .pesquisar{
-    form{
+    .search{
       max-width: 580px;
     }
   }
@@ -162,7 +162,7 @@ footer{
 @media screen and (max-width: 1440px){
   .group{
   .pesquisar{
-    form{
+    .search{
       max-width: 480px;
     }
   }
@@ -207,7 +207,7 @@ footer{
 @media screen and (max-width: 745px){
   .group{
   .pesquisar{
-    form{
+    .search{
       max-width: 280px;
     }
   }
@@ -231,7 +231,7 @@ footer{
     margin: 0;
     display: block;
 
-    form{
+    .search{
       margin: 0 auto;
       max-width: 380px;
     }
@@ -253,7 +253,7 @@ footer{
 @media screen and (max-width: 424px){
   .group{
   .pesquisar{
-    form{
+    .search{
       max-width: 280px;
     }
   }
