@@ -111,13 +111,25 @@ export function Main() {
         <Modal
           isOpen={ModalAddIsOpen}
           onRequestClose={closeAddModal}
+          overlayClassName="react-modal-overlay"
+          className="react-modal-content"
         >
-          <form onSubmit={handleSubmit} method="POST">
-            <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" />
-            <textarea name="" value={ingredients} onChange={(e) => setIngredients(e.target.value)}></textarea>
-            <textarea name="" value={instructions} onChange={(e) => setInstructions(e.target.value)}></textarea>
-            <input value={imagem} onChange={(e) => setImagem(e.target.value)} type="text" />
-            <button type="submit">Enviar</button>
+          <form className="modalAdd" onSubmit={handleSubmit} method="POST">
+            <div className="cabecario">
+              <h3>Adicionar Receita</h3>
+              <img onClick={closeAddModal} src="/assests/fechar.png" alt="Fechar" />
+            </div>
+            <div className="campoText">
+              <p>Nome da receita *</p>
+              <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" />
+              <p>Ingredientes *</p>
+              <textarea name="" value={ingredients} onChange={(e) => setIngredients(e.target.value)}></textarea>
+              <p>Instruções *</p>
+              <textarea name="" value={instructions} onChange={(e) => setInstructions(e.target.value)}></textarea>
+              <p>Imagem URL</p>
+              <input value={imagem} onChange={(e) => setImagem(e.target.value)} type="text" />
+            </div>
+            <button className="react-modal-close" type="submit">Adicionar</button>
           </form>
         </Modal>
       )}
@@ -144,7 +156,7 @@ export function Main() {
           <div className="card">
             <div>
               <h3>{item.title}</h3>
-              <img onClick={closeEditModal} src="" alt="Fechar" />
+              <img onClick={closeEditModal} src="/assests/fechar.png" alt="Fechar" />
             </div>
 
             <div>
