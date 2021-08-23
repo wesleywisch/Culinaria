@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  :root{
+    --green: green;
+    --red: red;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -50,7 +55,7 @@ export default createGlobalStyle`
   }
 
   .react-modal-content{
-    width: 100%;
+    width: 900px;
     max-width: 576px;
     background: #333;
     padding: 3rem;
@@ -104,24 +109,100 @@ export default createGlobalStyle`
           border-bottom: 2px solid green;
         }
       }
+
+      .react-modal-close{
+        background-color: var(--green);
+      }
+    }
+
+    .modalEdit{
+
+      .cabecario{
+        display: flex;
+        justify-content: space-between;
+
+        h3{
+          font-size: 1.4rem;
+        }
+
+        img{
+          width: 28px;
+          cursor: pointer;
+        }
+      }
+
+      p{
+        color: #f5f5f5;
+        margin-top: 2rem;
+      }
+
+      .content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 1.5rem 0;
+        height: 340px;
+
+        textarea{
+          resize: none;
+          background-color: transparent;
+          border: none;
+          font-size: 1.3rem;
+          padding: 12px;
+          color: #f8f8f8;
+        }
+
+        img{
+          width: 240px;
+        }
+
+      }
+
+      .instructions{
+        width: 100%;
+
+        p{
+          color: #f5f5f5;
+          margin-bottom: 2rem;
+        }
+
+        textarea{
+          width: 100%;
+          resize: none;
+          background-color: transparent;
+          border: none;
+          font-size: 1.3rem;
+          color: #f8f8f8;
+        }
+      }
+
+      .react-modal-close{
+        background-color: var(--red);
+      }
     }
   }
 
   .react-modal-close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
     position: absolute;
     left: 2.5rem;
     bottom: 1rem;
     border: 0;
     background: #FFF;
     padding: 0.5rem;
-    font-size: 0.8rem;
-    background-color: green;
+    font-size: 1rem;
     color: #f8f8f8;
     border-radius: 2rem;
     transition: filter 0.2s;
 
     &:hover{
       filter: brightness(0.8);
+    }
+
+    img{
+      width: 18px;
     }
   }
 `;
