@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 
 export function ModalAdd({ ModalAddIsOpen, closeAddModal, handleSubmit, title, ingredients, instructions, imagem, setTitle, setIngredients, setInstructions, setImagem, errors }) {
-  console.log(errors);
 
   return (
     <Modal

@@ -175,6 +175,7 @@ export default createGlobalStyle`
 
       .instructions{
         width: 100%;
+        height: 16rem;
 
         p{
           color: #f5f5f5;
@@ -188,6 +189,7 @@ export default createGlobalStyle`
           border: none;
           font-size: 1.3rem;
           color: #f8f8f8;
+          height: 10rem;
         }
       }
 

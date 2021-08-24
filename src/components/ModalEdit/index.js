@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 
-export function ModalEdit({ ModalEditIsOpen, closeEditModal, handleDelete, item }) {
+export function ModalEdit({ ModalEditIsOpen, closeEditModal, handleDelete, item, handleEdit }) {
   return (
     <Modal
       isOpen={ModalEditIsOpen}
@@ -21,7 +21,7 @@ export function ModalEdit({ ModalEditIsOpen, closeEditModal, handleDelete, item 
         </div>
 
         <div className="instructions">
-          <p>Intruções</p>
+          <p>Instruções</p>
           <textarea>{item.instructions}</textarea>
         </div>
 
