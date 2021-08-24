@@ -205,4 +205,16 @@ export default createGlobalStyle`
       width: 18px;
     }
   }
+
+  @media screen and (max-width: 600px){
+    .react-modal-content{
+      max-width: 320px;
+
+      .modalEdit{
+        .content{
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
 `;
