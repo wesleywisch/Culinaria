@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 
-import Modal from 'react-modal';
-
 import { Container } from './styles';
+
 import { Validation } from '../../helpers/Validations';
+
+import { ModalAdd } from '../ModalAdd';
+import { ModalEdit } from '../ModalEdit';
 
 export function Main() {
   const [food, setFood] = useState([]);
@@ -59,7 +61,7 @@ export function Main() {
 
     const checkValidation = Validation({ formData });
 
-    if(checkValidation.length > 0){
+    if (checkValidation.length > 0) {
       setErrors(checkValidation);
       return;
     }
@@ -81,8 +83,6 @@ export function Main() {
     setInstructions('');
     setImagem('');
   }
-
-  console.log(errors)
 
   async function handleDelete(id) {
     await api.delete(`/culinary/${id}`);
@@ -128,39 +128,25 @@ export function Main() {
       </div>
 
       {ModalAddIsOpen && (
-        <Modal
-          isOpen={ModalAddIsOpen}
-          onRequestClose={closeAddModal}
-          overlayClassName="react-modal-overlay"
-          className="react-modal-content"
-        >
-          <form className="modalAdd" onSubmit={handleSubmit} method="POST">
-            <div className="cabecario">
-              <h3>Adicionar Receita</h3>
-              <img onClick={closeAddModal} src="/assests/fechar.png" alt="Fechar" />
-            </div>
-            <div className="campoText">
-              <p>Nome da receita *</p>
-              <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" />
-              {errors.some(key => key.title) && <span>O título é obrigatório</span>}
-              <p>Ingredientes *</p>
-              <textarea name="" value={ingredients} onChange={(e) => setIngredients(e.target.value)}></textarea>
-              {errors.some(key => key.ingredients) && <span>Os ingredientes são obrigatório</span>}
-              <p>Instruções *</p>
-              <textarea name="" value={instructions} onChange={(e) => setInstructions(e.target.value)}></textarea>
-              {errors.some(key => key.instructions) && <span>As instruções são obrigatório</span>}
-              <p>Imagem URL</p>
-              <input value={imagem} onChange={(e) => setImagem(e.target.value)} type="text" />
-              {errors.some(key => key.imagem) && <span>A imagem é obrigatória e é uma URL</span>}
-            </div>
-            <button className="react-modal-close" type="submit">Adicionar</button>
-          </form>
-        </Modal>
+        <ModalAdd
+          ModalAddIsOpen={ModalAddIsOpen}
+          closeAddModal={closeAddModal}
+          handleSubmit={handleSubmit}
+          title={title}
+          ingredients={ingredients}
+          instructions={instructions}
+          imagem={imagem}
+          setTitle={setTitle}
+          setIngredients={setIngredients}
+          setInstructions={setInstructions}
+          setImagem={setImagem}
+          errors={errors}
+        />
       )}
 
 
       <section className="sectionCards">
-        {food.map((foods, id) => (
+        {food.map(foods => (
           <div key={foods.id} className="card">
             <img src={foods.imagem} alt={foods.title} />
             <h3>{foods.title}</h3>
@@ -173,44 +159,13 @@ export function Main() {
       </section>
 
       {ModalEditIsOpen && (
-        <Modal
-          isOpen={ModalEditIsOpen}
-          onRequestClose={closeEditModal}
-          overlayClassName="react-modal-overlay"
-          className="react-modal-content"
-        >
-          <div className="modalEdit">
-            <div className="cabecario">
-              <h3>{item.title}</h3>
-              <img onClick={closeEditModal} src="/assests/fechar.png" alt="Fechar" />
-            </div>
-
-            <p>Ingredientes</p>
-            <div className="content">
-              <textarea>{item.ingredients}</textarea>
-              <img src={item.imagem} alt={item.title} />
-            </div>
-
-            <div className="instructions">
-              <p>Intruções</p>
-              <textarea>{item.instructions}</textarea>
-            </div>
-
-            <div>
-              <button className="react-modal-close" onClick={() => handleDelete(item.id)}>
-                <img src="/assests/lixo.png" alt="Delete" />
-                Delete
-              </button>
-            </div>
-          </div>
-        </Modal>
+        <ModalEdit
+          ModalEditIsOpen={ModalEditIsOpen}
+          closeEditModal={closeEditModal}
+          handleDelete={handleDelete}
+          item={item}
+        />
       )}
-
-      <footer>
-        <h2>Seus segredos culinários estão guardados</h2>
-        <img src="/assests/cookbook.png" alt="" />
-      </footer>
-
     </Container>
   )
 }

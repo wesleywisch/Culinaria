@@ -123,34 +123,14 @@ export const Container = styled.main`
   }
 }
 
-footer{
-  margin-top: 8rem;
-  display: flex;
-  width: 100%;
-  height: 180px;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #333;
-
-  h2{
-    font-size: 3rem;
-  }
-
-  img{
-    width: 150px;
-    height: 150px;
-  }
-}
-
-
 @media screen and (max-width: 1550px){
   .group{
-  .pesquisar{
-    .search{
-      max-width: 580px;
+    .pesquisar{
+      .search{
+        max-width: 580px;
+      }
     }
   }
-}
 }
 
 @media screen and (max-width: 1500px){
@@ -161,39 +141,33 @@ footer{
 
 @media screen and (max-width: 1440px){
   .group{
-  .pesquisar{
-    .search{
-      max-width: 480px;
+    .pesquisar{
+      .search{
+        max-width: 480px;
+      }
     }
   }
-}
 }
 
 @media screen and (max-width: 1322px){
   .group{
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
 
-  .left{
-    margin: 1rem auto;
-  }
+    .left{
+      margin: 1rem auto;
+    }
 
-  .pesquisar{
-    justify-content: space-around;
-    margin: 1rem 2rem;
+    .pesquisar{
+      justify-content: space-around;
+      margin: 1rem 2rem;
+    }
   }
-}
 }
 
 @media screen and (max-width: 1200px){
   .sectionCards{
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  footer{
-    h2{
-      margin-left: 0.5rem;
-    }
   }
 }
 
@@ -206,58 +180,46 @@ footer{
 
 @media screen and (max-width: 745px){
   .group{
-  .pesquisar{
-    .search{
-      max-width: 280px;
+    .pesquisar{
+      .search{
+        max-width: 280px;
+      }
     }
   }
-}
-
-footer{
-  h2{
-    font-size: 2rem;
-  }
-}
 }
 
 @media screen and (max-width: 525px){
   .group{
-  .left{
-    display: flex;
-    justify-content: center;
-  }
-
-  .pesquisar{
-    margin: 0;
-    display: block;
-
-    .search{
-      margin: 0 auto;
-      max-width: 380px;
+    .left{
+      display: flex;
+      justify-content: center;
     }
 
-    .add{
-      margin: 1rem auto;
-      max-width: 180px;
+    .pesquisar{
+      margin: 0;
+      display: block;
+
+      .search{
+        margin: 0 auto;
+        max-width: 380px;
+      }
+
+      .add{
+        margin: 1rem auto;
+        max-width: 180px;
+      }
     }
   }
-}
-
-footer{
-  h2{
-    font-size: 1.4rem;
-  }
-}
 }
 
 @media screen and (max-width: 424px){
   .group{
-  .pesquisar{
-    .search{
-      max-width: 280px;
+    .pesquisar{
+      .search{
+        max-width: 280px;
+      }
     }
   }
-}
 }
 
 `;

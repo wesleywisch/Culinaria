@@ -81,6 +81,22 @@ export default createGlobalStyle`
         margin-top: 1.5rem;
         width: 100%;
 
+        #title::placeholder{
+          color: #FF5252;
+        }
+
+        #ingredients::placeholder{
+          color: #FF5252;
+        }
+
+        #instructions::placeholder{
+          color: #FF5252;
+        }
+
+        #imagem::placeholder{
+          color: #FF5252;
+        }
+
         input{
           width: 100%;
           height: 30px;
